@@ -1,3 +1,12 @@
+<?php
+
+/**
+ * Template Name: Contact Us Template
+ */
+
+?>
+
+
 <?php get_header(); ?>
 
 
