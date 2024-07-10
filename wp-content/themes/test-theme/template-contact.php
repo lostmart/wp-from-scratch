@@ -1,7 +1,7 @@
 <?php
 
-/**
- * Template Name: Contact Us Template
+/*
+ * Template Name: Hello Venetia
  */
 
 ?>
