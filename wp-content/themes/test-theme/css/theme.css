@@ -1,1 +1,23 @@
-/* this is just a test !!  */
+@import "./header.css";
+@import "./hero.css";
+
+:root {
+	--primary-clr: #287094;
+	--primary-clr-alt: #013246;
+	--grey: #d3d4ce;
+	--grey-light: #f6f6f6;
+	--accent: #fb991c;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.container {
+	max-width: 1440px;
+}

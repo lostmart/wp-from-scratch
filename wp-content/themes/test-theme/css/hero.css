@@ -1,0 +1,16 @@
+.photo__content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 507px; /*  dynamic !!?  */
+	position: relative;
+}
+
+.photographe {
+	top: 0;
+	left: 0;
+	width: 100%;
+	object-fit: contain;
+	position: absolute;
+	z-index: -1;
+}
