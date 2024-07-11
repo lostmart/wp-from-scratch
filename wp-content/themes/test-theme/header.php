@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Wordpress Theme</title>
+    <title><?php the_title(); ?></title>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -11,7 +11,7 @@
 
 
 
-<header>
+<header class="container">
 
   <div class="site-branding">
     <?php
@@ -25,7 +25,7 @@
       ?>
     </div>
       
-    <div class="menu-toggle slideInAnim">
+    <div class="menu-toggle">
             <span class="line_menu"></span>
             <span class="line_menu"></span>
             <span class="line_menu"></span>

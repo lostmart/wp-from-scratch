@@ -20,7 +20,7 @@ header {
 
 .site-branding a {
 	text-decoration: none;
-	color: #000;
+	color: var(--primary-clr);
 	font-size: 24px;
 	font-weight: bold;
 }
@@ -52,12 +52,11 @@ header {
 	height: 100vh;
 	top: 63px;
 	left: 0px;
-	background-color: var(--color-rouge);
 }
 
 .contact-btn {
 	display: inline-block;
-	background-color: white;
+	background-color: transparent;
 	padding: 6px 16px;
 	border-radius: 6px;
 	cursor: pointer;
@@ -70,9 +69,6 @@ header {
 .menu-item a,
 .menu-item span {
 	color: var(--color-noir);
-	font-weight: var(--font-weight-normal);
-	font-size: var(--font-size-p);
-	font-family: var(--font-primary);
 	text-transform: uppercase;
 }
 
@@ -94,9 +90,10 @@ header {
 	display: block;
 	width: 30px;
 	height: 3px;
-	background-color: black;
+	background-color: var(--primary-clr);
 	margin: 6px 0;
 	transition: all 250ms ease-in-out;
+	animation: menuLines 550ms ease-in-out forwards;
 }
 
 /* popup style */
@@ -158,9 +155,23 @@ label {
 @keyframes slideIn {
 	0% {
 		transform: translateX(100%);
+		opacity: 0;
 	}
 	100% {
 		transform: translateX(0);
+	}
+}
+
+@keyframes menuLines {
+	0% {
+		margin: 0;
+		opacity: 0;
+	}
+	75% {
+		opacity: 1;
+	}
+	100% {
+		margin: 6px 0;
 	}
 }
 
@@ -172,7 +183,7 @@ label {
 	animation: slideIn 320ms ease-in-out forwards;
 }
 
-@media (max-width: 768px) {
+@media only screen and (min-width: 720px) {
 	.custom-logo-link {
 		margin-left: -160px;
 	}
