@@ -25,7 +25,7 @@
       ?>
     </div>
       
-    <div class="menu-toggle">
+    <div class="menu-toggle slideInAnim">
             <span class="line_menu"></span>
             <span class="line_menu"></span>
             <span class="line_menu"></span>
