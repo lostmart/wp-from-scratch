@@ -9,6 +9,7 @@
 	background-position: center;
 	background-size: cover;
 	padding: 8px;
+	margin-top: -54px;
 }
 
 .photo__content::before {
@@ -32,16 +33,18 @@
 }
 
 .photo__content h1 {
-	color: transparent;
 	position: relative;
 	z-index: 10;
 	text-transform: uppercase;
-	font-size: 3.2em;
+	font-size: 3.4em;
 	color: transparent;
 	-webkit-text-stroke-width: 1px;
 	-webkit-text-stroke-color: #e0e0e0b5;
 	text-shadow: 0px 0px 4px #ffffff1a;
 	line-height: 1;
+	mix-blend-mode: color-dodge;
+	margin-top: 32px;
+	margin-bottom: 16px;
 }
 
 .photo__content p {
@@ -64,13 +67,31 @@
 	font-size: 1.1em;
 }
 
+.photograph__event,
+.photo__content > p,
+.photo__content button {
+	transform: translateY(32px);
+	filter: blur(12px);
+	opacity: 0;
+	animation: showContent 0.9s forwards ease-in-out 0.7s;
+}
+
+.photo__content > p {
+	animation-delay: 1s;
+}
+
+.photo__content button {
+	animation-delay: 1.2s;
+}
+
 @media only screen and (min-width: 720px) {
 	.photo__content {
 		height: clamp(400px, 59vw, 650px);
 		justify-content: flex-start;
 		align-items: flex-start;
-		padding-top: 40px;
-		padding-left: 24px;
+		padding-top: 120px;
+		padding-left: 16px;
+		margin-top: -81px;
 	}
 
 	.photo__content::before {
@@ -101,3 +122,11 @@
 	position: absolute;
 	z-index: -1;
 } */
+
+@keyframes showContent {
+	to {
+		transform: translateY(0);
+		filter: blur(0);
+		opacity: 1;
+	}
+}

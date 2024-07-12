@@ -3,13 +3,16 @@ header {
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	height: 80px;
+	height: 54px;
 	padding: 16px;
 	background-color: var(--color-blanc);
 	transition: all var(--animation-duration) ease-in-out;
 	z-index: 99;
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 	position: relative;
+	background-color: #ffffff17;
+	backdrop-filter: grayscale(0.6) blur(3px);
+	border-bottom: 1px solid #ffffff99;
 }
 
 /* logo */
@@ -20,7 +23,7 @@ header {
 
 .site-branding a {
 	text-decoration: none;
-	color: var(--primary-clr);
+	color: white;
 	font-size: 24px;
 	font-weight: bold;
 }
@@ -90,10 +93,11 @@ header {
 	display: block;
 	width: 30px;
 	height: 3px;
-	background-color: var(--primary-clr);
+	background-color: white;
+	opacity: 0;
 	margin: 6px 0;
 	transition: all 250ms ease-in-out;
-	animation: menuLines 550ms ease-in-out forwards;
+	animation: menuLines 520ms ease-in-out forwards 2s;
 }
 
 /* popup style */
@@ -168,10 +172,10 @@ label {
 		opacity: 0;
 	}
 	75% {
-		opacity: 1;
+		margin: 6px 0;
 	}
 	100% {
-		margin: 6px 0;
+		opacity: 1;
 	}
 }
 
@@ -180,7 +184,7 @@ label {
 }
 
 .slideInAnim {
-	animation: slideIn 320ms ease-in-out forwards;
+	animation: slideIn 520ms ease-in-out forwards;
 }
 
 @media only screen and (min-width: 720px) {
