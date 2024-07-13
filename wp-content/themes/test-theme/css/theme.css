@@ -1,6 +1,7 @@
 @import "./header.css";
 @import "./hero.css";
 @import "./photos-container.css";
+@import "./lightbox.css";
 
 :root {
 	--primary-clr: #287094;

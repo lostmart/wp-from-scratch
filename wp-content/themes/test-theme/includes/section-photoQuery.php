@@ -23,10 +23,18 @@
                 $post_id = get_the_ID();
         ?>
         
-
+                <!-- card template -->
                 <article class="card">
                    
-                        <img class="post_img" src="<?php echo $image_url; ?>" alt="<?php the_title_attribute(); ?>" data-imgId="<?php echo $post_id; ?>" />
+                        <img class="post_img" 
+                            src="<?php echo $image_url; ?>" 
+                            alt="<?php the_title_attribute(); ?>" 
+                            data-imgId="<?php echo $post_id; ?>"
+                            data-reference="<?php echo $reference; ?>"
+                            data-category="category here!"
+
+                            
+                            />
                     
 
                     <!-- Overlay Content -->
@@ -41,9 +49,7 @@
                                 <img class="lightbox-eye" src="<?php echo get_template_directory_uri(); ?>/assets/eye.svg" alt="lightbox eye" role="button" aria-pressed="false" />
                             </a>
                         </div>
-                    </div>
-
-                    
+                    </div>                    
                 </article>
 
         <?php
