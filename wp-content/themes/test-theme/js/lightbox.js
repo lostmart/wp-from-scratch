@@ -1,5 +1,6 @@
 const cardArray = document.querySelectorAll(".card")
-// const fullBtnArray = document.querySelectorAll(".fullscreen")
+const lightbox = document.querySelector(".lightbox")
+const lightboxClose = document.querySelector(".lightbox__close")
 
 // post data intitialized
 let photosData = []
@@ -20,9 +21,25 @@ cardArray.forEach((card, i) => {
 	photosData.push(postData)
 	// fullscreen button for each photo
 	const fullBtn = card.querySelector(".fullscreen")
-	fullBtn.addEventListener("click", () => {
+	fullBtn.addEventListener("click", (e) => {
+		e.stopPropagation()
 		console.log("you clicked the full btn", i)
+		lightbox.classList.add("toggled")
+		document.querySelector(".lightbox__container").firstElementChild.src =
+			photosData[i].imageUrl
 	})
+})
+
+// close lighbox
+lightboxClose.addEventListener("click", () => {
+	lightbox.classList.remove("toggled")
+})
+
+// close lighbox when background is clicked
+window.addEventListener("click", (e) => {
+	e.target.classList.contains("lightbox")
+		? lightbox.classList.remove("toggled")
+		: false
 })
 
 console.log(photosData)
