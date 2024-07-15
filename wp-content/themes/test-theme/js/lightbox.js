@@ -10,13 +10,15 @@ let photosData = []
 // loop the dom, extract data and handle event listeners
 cardArray.forEach((card, i) => {
 	// data for each photo to insert into the post array
-	const imageUrl = card.querySelector(".post_img").src
-	const postRef = card.querySelector(".post_img").getAttribute("data-reference")
-	const postCat = card.querySelector(".post_img").getAttribute("data-category")
+	const imageUrl = card.getAttribute("data-imageUrl")
+	const postRef = card.getAttribute("data-reference")
+	const postCat = card.getAttribute("data-category")
+	const postFormat = card.getAttribute("data-format")
 	const postData = {
 		imageUrl,
 		postRef,
 		postCat,
+		postFormat,
 	}
 	photosData.push(postData)
 	// fullscreen button for each photo

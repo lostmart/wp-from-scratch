@@ -1,6 +1,6 @@
 <section class="query_photos">
     <h2>Here there will be photos</h2>
-    <div class="photos-container">
+    <div class="photo-grid">
             
       
     <?php
@@ -10,6 +10,13 @@
             'orderby' => 'date',
             'order' => 'DESC',
             'paged' => 1,
+            // 'tax_query' => array(
+            //         array(
+            //             'taxonomy' => 'photo_category',
+            //             'field'    => 'slug',    
+            //             'terms'    => 'data-sheets',
+            //         ),
+            // ),
         );
 
         $query = new WP_Query($args);
@@ -17,31 +24,55 @@
             while ($query->have_posts()) :
                 $query->the_post();
                 $image_url = get_the_post_thumbnail_url();
-                $categories = get_the_category_list(', ');
+                $category = null;
+                $format = null;
                 $reference = get_post_meta(get_the_ID(), 'reference', true);
                
                 $post_id = get_the_ID();
+
+                    $category_terms = get_the_terms( $post_id, 'photo_category' );
+                        if ($category_terms) {
+                            foreach($category_terms as $term) {
+                                $category = $term->slug; 
+                                //Expected Result: "Job Offer" or "job-offer", prefer to retrieve slug name of custom category
+                            } 
+                        }
+                    
+                    $photo_format = get_the_terms( $post_id, 'format' );
+                        if ($photo_format) {
+                            foreach($photo_format as $fom_term) {
+                                $format = $fom_term->slug; 
+                                //Expected Result: "Job Offer" or "job-offer", prefer to retrieve slug name of custom category
+                            } 
+                        }
+
+
+                
         ?>
+
+
+                        
+
+
         
                 <!-- card template -->
-                <article class="card">
-                   
-                        <img class="post_img" 
-                            src="<?php echo $image_url; ?>" 
-                            alt="<?php the_title_attribute(); ?>" 
-                            data-imgId="<?php echo $post_id; ?>"
-                            data-reference="<?php echo $reference; ?>"
-                            data-category="category here!"
+                <article class="card <?php if(trim($format)=="portrait") echo "card-tall"; ?>"
+                    style="background-image:url('<?php echo $image_url; ?>')"
+                    data-imageUrl="<?php echo $image_url; ?>"
+                    data-imgId="<?php echo $post_id; ?>"
+                    data-reference="<?php echo $reference; ?>"
+                    data-category="<?php echo $category; ?>"
+                    data-format="<?php echo $format; ?>"
 
-                            
-                            />
+                    
+                    >
                     
 
                     <!-- Overlay Content -->
                     <div class="overlay">
                     
-                        <span class="right-text">Reference: <?php echo $reference; ?></span>
-                        <span class="left-text">Catégories: <?php echo $categories; ?></span>
+                        <span class="right-text"><?php echo the_title(); ?></span>
+                        <span class="left-text"><?php echo $category; ?></span>
 
                         <div class="center-icons">
                             <img class="fullscreen" src="<?php echo get_template_directory_uri(); ?>/assets/full.svg" alt="fullscreen logo" role="button" aria-pressed="false" />
