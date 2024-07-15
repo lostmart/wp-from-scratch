@@ -6,7 +6,7 @@
     <?php
         $args = array(
             'post_type' => 'photo',
-            'posts_per_page' => 8,
+            'posts_per_page' => 9,
             'orderby' => 'date',
             'order' => 'DESC',
             'paged' => 1,
@@ -56,7 +56,11 @@
 
         
                 <!-- card template -->
-                <article class="card <?php if(trim($format)=="portrait") echo "card-tall"; ?>"
+                 <?php
+                 $help_class = "";
+                 (trim($format)=="portrait") ? $help_class = "card-tall" : $help_class = "card-wide";
+                 ?>
+                <article class="card <?php echo $help_class ?>"
                     style="background-image:url('<?php echo $image_url; ?>')"
                     data-imageUrl="<?php echo $image_url; ?>"
                     data-imgId="<?php echo $post_id; ?>"
