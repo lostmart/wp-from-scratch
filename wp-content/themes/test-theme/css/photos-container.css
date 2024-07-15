@@ -2,7 +2,7 @@
 	display: grid;
 	gap: 1rem;
 
-	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	grid-template-columns: repeat(3, minmax(320px, 1fr));
 	grid-auto-rows: 240px;
 }
 
@@ -96,13 +96,17 @@
 	color: white;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 620px) {
 	.card-tall {
 		grid-row: span 2 / auto;
 	}
 
 	.card-wide {
 		grid-column: span 2 / auto;
+	}
+
+	.card-tall-three {
+		grid-row: span 3 / auto;
 	}
 }
 

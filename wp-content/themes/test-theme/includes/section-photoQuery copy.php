@@ -6,7 +6,7 @@
     <?php
         $args = array(
             'post_type' => 'photo',
-            'posts_per_page' => 10,
+            'posts_per_page' => 9,
             'orderby' => 'date',
             'order' => 'DESC',
             'paged' => 1,
@@ -21,7 +21,6 @@
 
         $query = new WP_Query($args);
         if ($query->have_posts()) :
-            $index = 0;
             while ($query->have_posts()) :
                 $query->the_post();
                 $image_url = get_the_post_thumbnail_url();
@@ -46,23 +45,21 @@
                                 //Expected Result: "Job Offer" or "job-offer", prefer to retrieve slug name of custom category
                             } 
                         }
-                ?>
+
+
+                
+        ?>
+
+
+                        
+
+
+        
                 <!-- card template -->
                  <?php
                  $help_class = "";
-                //  (trim($format)=="portrait") ? $help_class = "card-tall" : $help_class = "card-wide";
-                if($index == 7 ){
-                    $help_class = "card-tall-three";
-                }elseif ($index == 3 || $index == 5 || $index == 8) {
-                    $help_class = "";
-                }elseif (trim($format)=="portrait" || $index == 6) {                    
-                    $help_class = "card-tall";
-                }
-                elseif(trim($format)=="landscape"){
-                     $help_class = "card-wide";
-                }
+                 (trim($format)=="portrait") ? $help_class = "card-tall" : $help_class = "card-wide";
                  ?>
-                
                 <article class="card <?php echo $help_class ?>"
                     style="background-image:url('<?php echo $image_url; ?>')"
                     data-imageUrl="<?php echo $image_url; ?>"
@@ -70,7 +67,6 @@
                     data-reference="<?php echo $reference; ?>"
                     data-category="<?php echo $category; ?>"
                     data-format="<?php echo $format; ?>"
-                    data-index="<?php echo $index ?>"
 
                     
                     >
@@ -92,7 +88,6 @@
                 </article>
 
         <?php
-            $index++;
             endwhile;
         else :
             _e('Sorry, no posts were found.', 'textdomain');

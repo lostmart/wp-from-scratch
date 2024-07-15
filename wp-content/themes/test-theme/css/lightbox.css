@@ -26,7 +26,7 @@
 	width: 100%;
 	height: 100%;
 	z-index: 150;
-	max-width: 880px;
+	max-width: 1450px;
 	transform: translateY(32px);
 	filter: blur(12px);
 	opacity: 0;
